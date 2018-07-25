@@ -1,0 +1,16 @@
+@mixin placeholder {
+    $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+    @each $placeholder in $placeholders {
+        &:#{$placeholder}-placeholder {
+            @content;
+        }
+    }
+}
+
+@mixin clear_after {
+    &::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}

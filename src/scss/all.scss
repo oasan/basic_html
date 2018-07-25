@@ -1,0 +1,52 @@
+@import 'fonts';
+@import 'reset';
+@import 'mixins';
+@import 'popup';
+
+@import '../js/slick/slick.css';
+
+$main_color: #262626;
+
+$main_font: 'Open Sans', arial, sans-serif;
+
+$link_color: #00f;
+
+$container_width: 1200px;
+
+
+@import 'base';
+@import 'elements';
+
+
+
+
+@media screen and (max-width:1199px) {
+    .container {
+        width: 940px;
+    }
+
+
+}
+
+@media screen and (max-width:959px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media screen and (min-width:767px) {
+	.main_menu {
+		display: block !important;
+	}
+}
+@media screen and (max-width:767px) {
+    .container {
+        width: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media screen and (max-width:639px) {
+
+}
