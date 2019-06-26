@@ -1,0 +1,341 @@
+
+
+.container {
+    width: $container_width;
+    margin: 0 auto;
+
+    @media screen and (max-width: 1220px) {
+        width: 940px;
+    }
+
+    @media screen and (max-width: 960px) {
+        width: 750px;
+    }
+
+    @media screen and (max-width: 768px) {
+        width: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+
+.text-center {
+    text-align: center;
+}
+.text-right  {
+    text-align: right;
+}
+.text-justify {
+    text-align: justify;
+}
+.pull-right {
+    float: right;
+}
+.clear {
+    clear: both;
+}
+.slick-slide {
+	outline: 0;
+}
+.video {
+	position: relative;
+	padding-bottom: 56.25%; // 16:9
+	padding-top: 25px;
+	height: 0;
+
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+.hidden {
+	display: none;
+}
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
+.section_title, h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+	line-height: 1;
+	font-weight: bold;
+	margin-top: 25px;
+
+    &:first-child {
+		margin-top: 0;
+	}
+}
+.section_title, h1, h2 {
+	font-size: 28px;
+}
+h3, h4, h5, h6 {
+    font-size: 22px;
+}
+
+
+.btn {
+    border: 0;
+    outline: 0;
+    background: $accent_color;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+
+    height: 50px;
+    line-height: 50px;
+    border-radius: 25px;
+    padding: 0 30px;
+    box-shadow: 0 0 50px rgba($accent_color, .4);
+    transition: .3s;
+    font-weight: bold;
+    color: #fff;
+    font-size: 17px;
+
+
+
+    &:focus {
+        box-shadow: 0 0 50px rgba($accent_color, .4),
+                    0 0 0 3px rgba($accent_color, .7);
+    }
+
+    &:hover {
+        background: darken($accent_color, 10%);
+    }
+}
+
+
+.nav_toggle_wrap {
+	height: 28px;
+	line-height: 28px;
+	width: 28px;
+	float: right;
+	cursor: pointer;
+	text-align: right;
+	margin-top: 0;
+	display: none;
+
+	.nav_toggle {
+		width: 28px;
+		margin-top: 7px;
+		float: right;
+		position: relative;
+
+		span {
+			display: block;
+			width: 100%;
+			height: 3px;
+			margin-bottom: 3px;
+			background: invert($main_color);
+			position: absolute;
+			top: 0;
+			transition: 0.3s;
+			opacity: 1;
+
+			&:nth-child(2) {
+				top: 6px;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+				top: 12px;
+			}
+		}
+	}
+
+	&.open .nav_toggle span {
+		&:first-child {
+			transform: rotate(45deg);
+			top: 6px;
+		}
+
+		&:nth-child(2) {
+			opacity: 0;
+		}
+
+		&:last-child {
+			transform: rotate(-45deg);
+			top: 6px;
+			left: 0;
+		}
+	}
+}
+
+
+.slick-arrow {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: $accent_color;
+    box-shadow: 0 0 50px rgba($accent_color, .4);
+    transition: .3s;
+    border: 0;
+    font-size: 0;
+    text-indent: -999px;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:focus {
+        box-shadow: 0 0 50px rgba($accent_color, .4),
+                    0 0 0 2px rgba($accent_color, .7);
+    }
+
+    &:hover {
+        background: darken($accent_color, 10%);
+    }
+
+    &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    &.slick-prev {
+        &:before {
+            background: url(../images/arrow-left.png) center no-repeat;
+            background-size: 20px auto;
+        }
+    }
+    &.slick-next {
+        &:before {
+            background: url(../images/arrow-right.png) center no-repeat;
+            background-size: 20px auto;
+        }
+    }
+}
+
+.textfield, .textarea {
+    height: 50px;
+    background: #fff;
+    border-radius: 10px;
+    border: 0;
+    outline: 0;
+    box-shadow: 0 0 18px rgba(0, 0, 0, .07);
+    width: 100%;
+    font-size: 16px;
+    line-height: 30px;
+    padding: 10px 20px;
+    transition: .3s;
+    margin-top: 15px;
+
+    &:focus {
+        border-color: $accent_color !important;
+        box-shadow: 0 0 0 3px rgba($accent_color, .5);
+
+        @include placeholder {
+            opacity: .1;;
+        }
+    }
+
+    &.error {
+        box-shadow: 0 0 0 3px rgba($error_color, .5);
+        border-color: $error_color !important;
+    }
+
+    @include placeholder {
+        opacity: 1;
+        color: #9a9a9a;
+        transition: opacity .3s;
+    }
+}
+
+.textarea {
+    min-height: 140px;
+}
+
+.select {
+    height: 50px;
+    border-radius: 10px;
+    border: 0;
+    outline: 0;
+    box-shadow: 0 0 18px rgba(0, 0, 0, .07);
+    width: 100%;
+    font-size: 20px;
+    line-height: 30px;
+    padding: 10px 40px 10px 20px;
+    transition: .3s;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='9'%3E%3Cpath fill-rule='evenodd' d='M7.5 9.007L14.998.009H.002L7.5 9.007'/%3E%3C/svg%3E%0A");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+
+
+
+    option {
+        font-size: 16px;
+    }
+}
+
+.checkbox_wrap {
+    transition: .3s;
+    
+    label {
+        display: inline-block;
+
+        span {
+            display: block;
+            width: 22px;
+            height: 22px;
+            border: 1px solid #787878;
+            cursor: pointer;
+
+            &:before {
+                content: '';
+                display: block;
+                width: 9px;
+                height: 15px;
+                border: 4px solid #fff;
+                border-top: 0;
+                border-left: 0;
+                transform: rotate(45deg);
+                margin-left: 6px;
+                transition: .3s;
+            }
+        }
+
+        input {
+            display: none;
+
+            &:checked {
+                + span {
+                    &:before {
+                        border-color: $accent_color;
+                    }
+                }
+            }
+        }
+    }
+
+    a {
+        color: inherit;
+    }
+
+    &.error {
+        color: $error_color;
+
+        label {
+            input {
+                + span {
+                    border-color: $error_color;
+                }
+            }
+        }
+    }
+}

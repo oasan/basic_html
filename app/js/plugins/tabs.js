@@ -16,12 +16,11 @@
                 tab_btns.removeClass('active');
                 $(this).addClass('active');
 
-                tabs.hide();
-                $($(this).attr('href')).show();
+                tabs.hide().removeClass('active');;
+                $($(this).attr('href')).addClass('active').show();
 
                 return false;
             });
         });
-
     };
 })(jQuery);

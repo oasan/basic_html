@@ -1,31 +1,37 @@
 $(function() {
 
+    $('.ajax_form').form({
+		success_message: 'Спасибо! Мы скоро выйдем на связь!',
+		after_success: function() {}
+	});
 
-	    $('.ajax_form').form({
-			success_message: 'Спасибо! Мы скоро выйдем на связь!',
-			after_success: function() {}
-		});
-
-
-		$('.nav_toggle_wrap').click(function() {
-			$(this).toggleClass('open');
-
-			$('.main_menu_wrap').slideToggle();
-
-			return false;
-		});
+    $('a[data-rel^=lightcase]').lightcase({
+        swipe: true
+    }).click(function() {
+        return false;
+    });
 
 
-		$(window).scroll(scrollFunction);
-		scrollFunction();
 
-		function scrollFunction() {
-			if ($(window).scrollTop() <= 100) {
-				$('.section_header').removeClass('fixed');
-			} else {
-				$('.section_header').addClass('fixed');
-			}
+	$('.nav_toggle_wrap').click(function() {
+		$(this).toggleClass('open');
+
+		$('.main_menu_wrap').slideToggle();
+
+		return false;
+	});
+
+
+	$(window).scroll(scrollFunction);
+	scrollFunction();
+
+	function scrollFunction() {
+		if ($(window).scrollTop() <= 100) {
+			$('.section_header').removeClass('fixed');
+		} else {
+			$('.section_header').addClass('fixed');
 		}
+	}
 
 
 

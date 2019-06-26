@@ -1,0 +1,18 @@
+$main_color:      #262626;
+$main_font:       'Open Sans', arial, sans-serif;
+$main_font_size:  14px;
+$link_color:      #00f;
+$container_width: 1200px;
+$accent_color:    #25cde3;
+$error_color:     #e12c2c;
+
+@import 'mixins';
+@import 'fonts';
+@import 'reset';
+@import 'plugins/popup';
+@import 'plugins/notify';
+
+
+
+
+@import 'elements';

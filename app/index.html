@@ -19,7 +19,7 @@
 <body>
 
 	<div class="container">
-		
+
 		<ul class="menu">
 			<li><a href="#toggle" class="goto">скрыть/показать</a></li>
 			<li><a href="#tabs" class="goto" data-setlocation="1" data-offset="100">Табы</a></li>
@@ -27,7 +27,7 @@
 			<li><a href="#popup" class="goto">Попап</a></li>
 			<li><a href="" class="goto"></a></li>
 		</ul>
-		<h4 id="toggle">Скрыть/показать</h4>
+		<h4 id="toggle">Скрыть / показать</h4>
 		<p><a href="#toggle_container" class="toggle" data-showtext="развернуть" data-hidetext="свернуть">свернуть</a></p>
 		<div id="toggle_container">
 			Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Реторический он взгляд страна. Точках своего рот ручеек, пунктуация заманивший! Однажды грустный но имеет. Речью журчит запятых, он текста коварных!
@@ -72,7 +72,10 @@
 
 
 		<h4 id="popup">Попап</h4>
-		<a href="#callback" class="open_popup">Открыть попап</a>
+		<a href="#callback" class="open_popup btn">Открыть попап</a>
+
+
+
 	</div>
 
 
@@ -85,7 +88,14 @@
 			<input type="text" name="name" placeholder="Ваше имя" class="textfield">
 			<input type="text" name="phone" placeholder="Номер телефона" class="textfield required">
 
-			<div class="policy">Нажимая на кнопку, вы соглашаетесь на обработку персональных данных в соответствии с <a href="#" target="_blank">Условиями конфиденциальности</a>.</div>
+            <div class="policy checkbox_wrap">
+                <label>
+                    <input type="checkbox" name="policy" class="checkbox required" checked="">
+                    <span></span>
+                </label>
+
+                Я даю согласие на <a href="#" target="_blank">обработку персональных данных</a>
+            </div>
 
 			<input type="submit" value="отправить заявку" class="btn">
 		</form>

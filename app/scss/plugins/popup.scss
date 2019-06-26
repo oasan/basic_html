@@ -1,3 +1,9 @@
+.popup {
+    display: none;
+    width: 300px;
+}
+
+
 .popup_screen {
 	position: fixed;
 	top: 0;
@@ -18,7 +24,6 @@
 
 .popup_wrapped {
 	position: fixed;
-	top: 50px;
 	left: 50%;
 	top: 50%;
 	background: #fff;
