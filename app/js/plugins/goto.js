@@ -10,7 +10,8 @@
     $.fn.goto = function(options) {
         var settings = $.extend( {
             'offset' : 0,
-            'setlocation' : false
+            'setlocation' : false,
+            'callback' : null
         }, options);
 
         this.click(function() {
@@ -23,14 +24,26 @@
                 settings.setlocation = parseInt(setlocation);
             }
 
-            var offset = $(target).offset().top - settings.offset;
-
-            $('html, body').animate({
-                scrollTop: offset
-            }, 500);
+            $(target).gotoElement(settings);
 
             if (!settings.setlocation) return false;
         });
+    };
 
+    $.fn.gotoElement = function(options) {
+        var settings = $.extend( {
+            'offset' : 0,
+            'callback' : null
+        }, options);
+
+        const offset = this.offset().top - settings.offset;
+
+        $('html, body').animate({
+            scrollTop: offset
+        }, 500, function() {
+            if (typeof settings.callback == 'function') callback();
+        });
+
+        return this;
     };
 })(jQuery);
