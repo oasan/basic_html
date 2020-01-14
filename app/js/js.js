@@ -1,9 +1,6 @@
 $(function() {
 
-    $('.ajax_form').form({
-		success_message: 'Спасибо! Мы скоро выйдем на связь!',
-		after_success: function() {}
-	});
+    $('.ajax_form').form();
 
     $('a[data-rel^=lightcase]').lightcase({
         swipe: true

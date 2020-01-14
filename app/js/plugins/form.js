@@ -1,10 +1,12 @@
 (function( $ ) {
     $.fn.form = function(options) {
         var settings = $.extend( {
-            'action' : 'sendmail.php',
-            'success_message' : 'Спасибо за заявку, наши менеджеры свяжутся с вами в ближайшее время',
-            'error_message' : 'Произошла ошибка попробуйте выполнить запрос позже',
-            after_success: false
+            success_title: 'Спасибо за заявку!',
+            success_message: 'Наши менеджеры свяжутся с вами в ближайшее время.',
+            error_title: 'Произошла ошибка.',
+            error_message: 'Попробуйте выполнить запрос позже.',
+            after_success: false,
+            callback_function: false,
         }, options);
 
         // Проводит валидацию формыы
@@ -59,6 +61,7 @@
         return this.each(function() {
             $(this).submit(function() {
                 var form = $(this);
+                const action = $(this).attr('action');
 
                 if (!validate_form(form)) {
                     return false;
@@ -67,7 +70,7 @@
                 var data = new FormData( form[0] );
 
                 $.ajax({
-                    url: settings.action,
+                    url: action,
                     type: 'POST',
                     data: data,
                     processData: false,
@@ -75,7 +78,7 @@
                 }).done(function(data) {
                     if (data == 1) {
                         form.trigger('reset');
-                        showMsg('', settings.success_message);
+                        showMsg(settings.success_title, settings.success_message);
 
                         if (typeof settings.after_success == 'function') {
                             settings.after_success();
@@ -85,10 +88,14 @@
                         for (var key in data) {
                             error += data[key] + '. ';
                         }
-                        showMsg('Произошла ошибка', error);
+                        showMsg(settings.error_title, error);
                     }
                 }).fail(function() {
-                    showMsg('Произошла ошибка', settings.error_message);
+                    showMsg(settings.error_title, settings.error_message);
+                }).always(function() {
+                    if (typeof settings.callback_function == 'function') {
+                        settings.callback_function();
+                    }
                 });
 
                 return false;
