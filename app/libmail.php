@@ -1395,7 +1395,7 @@ class SendMail extends Mail {
         $out_files = array();
 
         foreach ($files as $key => $file) {
-            if (!in_array($key, $this->keys)) continue; // Если файла нет у нас в разрешенных - пропускаем
+            if (!isset($this->keys[$key])) continue; // Если файла нет у нас в разрешенных - пропускаем
 
             if (is_array($file['name'])) {
                 for ($i = 0; $i < count($file['name']); $i++) {
